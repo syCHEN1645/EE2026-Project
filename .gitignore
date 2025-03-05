@@ -1,0 +1,11 @@
+// Folders
+.Xil
+config_settings
+FDP.cache
+FDP.hw
+FDP.ip_user_files
+FDP.ipdefs
+FDP.runs
+FDP.sim
+
+*.txt
