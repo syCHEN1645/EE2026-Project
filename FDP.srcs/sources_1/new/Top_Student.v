@@ -11,7 +11,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Top_Student (input BASE_CLOCK, [15:0] SW, output [7:0] JB);
+module Top_Student (input basys_clock, sw4, output [7:0] JXADC);
     wire clk_6p25Mhz;
     wire clk_25Mhz;
     
@@ -39,24 +39,24 @@ module Top_Student (input BASE_CLOCK, [15:0] SW, output [7:0] JB);
         end
     end
     
-    flexible_clock_divider clock_6p25MHz (BASE_CLOCK, 7, clk_6p25Mhz);
-    flexible_clock_divider clock_25Mhz (BASE_CLOCK, 1, clk_25Mhz);
+    flexible_clock_divider clock_6p25MHz (basys_clock, 7, clk_6p25Mhz);
+    flexible_clock_divider clock_25Mhz (basys_clock, 1, clk_25Mhz);
     
-    Oled_Display oled_unit_A (
+    Oled_Display oled_unit_B (
         .clk(clk_6p25Mhz),
         .reset(0),
-        .frame_begin(fb),
+        .frame_begin(fb), 
         .sending_pixels(sending_pixels),
-        .sample_pixel(sample_pixels),
+        .sample_pixel(sample_pixel),
         .pixel_index(pixel_index),
         .pixel_data(oled_data),
-        .cs(JB[0]),
-        .sdin(JB[1]),
-        .sclk(JB[3]),
-        .d_cn(JB[4]),
-        .resn(JB[5]),
-        .vccen(JB[6]),
-        .pmoden(JB[7])
+        .cs(JXADC[0]),
+        .sdin(JXADC[1]),
+        .sclk(JXADC[3]),
+        .d_cn(JXADC[4]),
+        .resn(JXADC[5]), 
+        .vccen(JXADC[6]),
+        .pmoden(JXADC[7])
     );
     
 endmodule
