@@ -19,8 +19,8 @@ module Top_Student (input basys_clock, sw4, output [7:0] JXADC);
     wire sending_pixels;
     wire sample_pixel;
     wire [12:0] pixel_index;
-    wire [6:0] x;
-    wire [5:0] y;
+    wire [7:0] x;
+    wire [6:0] y;
     assign x = pixel_index % 96;
     assign y  = pixel_index / 96;
     
